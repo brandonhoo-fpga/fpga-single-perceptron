@@ -1,5 +1,5 @@
 # FPGA Single Perceptron (SystemVerilog)
-A hardware-level implementation of a single perceptron, the foundational computational unit of a neural network. Computes a signed weighted sum of inputs against a configurable bias, then applies a Heaviside step activation to drive a binary output. The current top-level configuration uses two switches and a fixed weight/bias combination to realize a logical OR gate purely in hardware.
+A hardware-level implementation of a single perceptron, the basic computational unit of a neural network. Computes a signed weighted sum of inputs against a configurable bias, then applies a Heaviside step activation to drive a binary output. The current top-level configuration uses two switches and a fixed weight/bias combination to realize a logical OR gate purely in hardware.
 
 **Note:** This project marked my transition from Verilog to **SystemVerilog**. It served as a focused exploration of parameterized modules, packed multidimensional arrays, signed arithmetic, and the syntactic differences between `always_ff` / `always_comb` and the older Verilog `always` blocks.
 
@@ -16,7 +16,7 @@ A hardware-level implementation of a single perceptron, the foundational computa
 ## 🔄 Background & Motivation
 After completing my first FPGA project (the Morse Code Decoder in Verilog), I wanted a smaller, focused exercise to learn **SystemVerilog** without the overhead of a full system. I also wanted to take a first step into hardware-accelerated machine learning primitives.
 
-A single perceptron was the right fit. The math is short enough to fit in two modules, but it forces you to deal with signed arithmetic, parameterized data widths, and packed multidimensional arrays. It is also the literal building block of every neural network, so getting one perceptron right in hardware is the foundation for any future multi-layer or learning-capable design.
+A single perceptron was the right fit. The math is short enough to fit in two modules, but it forces you to deal with signed arithmetic, parameterized data widths, and packed multidimensional arrays. It is also the building block of every neural network, so getting one right in hardware is a starting point for anything bigger later.
 
 The end result is a parameterized module that can be reconfigured to any linearly separable function (OR, AND, NAND, NOR) by changing only the weights and bias, with no logic redesign required.
 
@@ -47,6 +47,6 @@ Because the entire logical behavior is determined by the weight and bias values,
 * **Verification:** Icarus Verilog + GTKWave
 
 ## 🚀 Lessons Learned
-This project taught me how the **SystemVerilog** type system improves on classic Verilog. Using `logic` instead of separate `wire` and `reg` declarations, splitting clocked logic into `always_ff` and combinational logic into `always_comb`, and packing multi-dimensional input/weight arrays in a single declaration made the module significantly cleaner than the equivalent Verilog would have been.
+This project taught me how the **SystemVerilog** type system improves on classic Verilog. Using `logic` instead of separate `wire` and `reg` declarations, splitting clocked logic into `always_ff` and combinational logic into `always_comb`, and packing multi-dimensional input/weight arrays in a single declaration made the module noticeably cleaner than it would have been in Verilog.
 
 It also demonstrated that **a neural network primitive maps cleanly to hardware**. The multiply-accumulate is just an unrolled loop in combinational logic, and the activation function is a single comparator. Every clock cycle the perceptron produces a fresh classification with zero software overhead, which is the entire point of moving inference into FPGAs in the first place. While this design is fixed-weight, it lays the groundwork for future projects involving runtime weight updates, multi-layer networks, and on-chip learning.
