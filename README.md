@@ -18,7 +18,7 @@ The current top-level acts as an OR gate driven by Switch 1 and Switch 2, lighti
 | 1   | 1   | -2 + 3 + 3 =  4  | ON    |
 
 ## 🔄 Background & Motivation
-After completing my first FPGA project (the Morse Code Decoder in Verilog), I wanted a smaller, focused exercise to learn **SystemVerilog** without the overhead of a full system. I also wanted to take a first step into hardware-accelerated machine learning primitives.
+After completing my second FPGA project (the Mandelbrot Set in Verilog), I wanted a smaller, focused exercise to learn **SystemVerilog** without the overhead of a full system. I also wanted to take a first step into hardware-accelerated machine learning primitives.
 
 A single perceptron was the right fit. The math is short enough to fit in two modules, but it forces you to deal with signed arithmetic, parameterized data widths, and packed multidimensional arrays. It is also the building block of every neural network, so getting one right in hardware is a starting point for anything bigger later.
 
