@@ -4,7 +4,10 @@ A hardware-level implementation of a single perceptron, the basic computational 
 **Note:** This project marked my transition from Verilog to **SystemVerilog**. It served as a focused exploration of parameterized modules, packed multidimensional arrays, signed arithmetic, and the syntactic differences between `always_ff` / `always_comb` and the older Verilog `always` blocks.
 
 ## 🎥 Hardware Demonstration
-*(Demonstration video pending. The current top-level acts as an OR gate driven by Switch 1 and Switch 2, lighting LED 1 whenever the perceptron's weighted sum exceeds zero.)*
+https://github.com/user-attachments/assets/54bbf3b2-0f06-4e96-a5bc-e46bd2f92199
+The current top-level acts as an OR gate driven by Switch 1 and Switch 2, lighting LED 1 whenever the perceptron's weighted sum exceeds zero
+
+
 
 | SW1 | SW2 | Weighted Sum     | LED 1 |
 |-----|-----|------------------|-------|
