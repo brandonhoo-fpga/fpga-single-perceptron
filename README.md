@@ -5,6 +5,7 @@ A hardware-level implementation of a single perceptron, the basic computational 
 
 ## 🎥 Hardware Demonstration
 https://github.com/user-attachments/assets/54bbf3b2-0f06-4e96-a5bc-e46bd2f92199
+
 The current top-level acts as an OR gate driven by Switch 1 and Switch 2, lighting LED 1 whenever the perceptron's weighted sum exceeds zero
 
 
